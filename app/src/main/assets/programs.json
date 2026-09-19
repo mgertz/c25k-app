@@ -1,0 +1,1108 @@
+{
+  "programs": [
+    {
+      "index": 0,
+      "week": 1,
+      "day": 1,
+      "warmupSeconds": 300,
+      "warmupSound": "walk",
+      "cooldownSeconds": 300,
+      "cooldownSound": "cooldown",
+      "completeSound": "complete",
+      "intervals": [
+        {
+          "type": "run",
+          "seconds": 60,
+          "sound": "run_60"
+        },
+        {
+          "type": "walk",
+          "seconds": 90,
+          "sound": "walk_90"
+        },
+        {
+          "type": "run",
+          "seconds": 60,
+          "sound": "run_60"
+        },
+        {
+          "type": "walk",
+          "seconds": 90,
+          "sound": "walk_90"
+        },
+        {
+          "type": "run",
+          "seconds": 60,
+          "sound": "run_60"
+        },
+        {
+          "type": "walk",
+          "seconds": 90,
+          "sound": "walk_90"
+        },
+        {
+          "type": "run",
+          "seconds": 60,
+          "sound": "run_60"
+        },
+        {
+          "type": "walk",
+          "seconds": 90,
+          "sound": "walk_90"
+        },
+        {
+          "type": "run",
+          "seconds": 60,
+          "sound": "run_60"
+        },
+        {
+          "type": "walk",
+          "seconds": 90,
+          "sound": "walk_90"
+        },
+        {
+          "type": "run",
+          "seconds": 60,
+          "sound": "run_60"
+        },
+        {
+          "type": "walk",
+          "seconds": 90,
+          "sound": "walk_90"
+        },
+        {
+          "type": "run",
+          "seconds": 60,
+          "sound": "run_60"
+        },
+        {
+          "type": "walk",
+          "seconds": 90,
+          "sound": "walk_90"
+        },
+        {
+          "type": "run",
+          "seconds": 60,
+          "sound": "run_60"
+        },
+        {
+          "type": "walk",
+          "seconds": 90,
+          "sound": "walk_90"
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "week": 1,
+      "day": 2,
+      "warmupSeconds": 300,
+      "warmupSound": "walk",
+      "cooldownSeconds": 300,
+      "cooldownSound": "cooldown",
+      "completeSound": "complete",
+      "intervals": [
+        {
+          "type": "run",
+          "seconds": 60,
+          "sound": "run_60"
+        },
+        {
+          "type": "walk",
+          "seconds": 90,
+          "sound": "walk_90"
+        },
+        {
+          "type": "run",
+          "seconds": 60,
+          "sound": "run_60"
+        },
+        {
+          "type": "walk",
+          "seconds": 90,
+          "sound": "walk_90"
+        },
+        {
+          "type": "run",
+          "seconds": 60,
+          "sound": "run_60"
+        },
+        {
+          "type": "walk",
+          "seconds": 90,
+          "sound": "walk_90"
+        },
+        {
+          "type": "run",
+          "seconds": 60,
+          "sound": "run_60"
+        },
+        {
+          "type": "walk",
+          "seconds": 90,
+          "sound": "walk_90"
+        },
+        {
+          "type": "run",
+          "seconds": 60,
+          "sound": "run_60"
+        },
+        {
+          "type": "walk",
+          "seconds": 90,
+          "sound": "walk_90"
+        },
+        {
+          "type": "run",
+          "seconds": 60,
+          "sound": "run_60"
+        },
+        {
+          "type": "walk",
+          "seconds": 90,
+          "sound": "walk_90"
+        },
+        {
+          "type": "run",
+          "seconds": 60,
+          "sound": "run_60"
+        },
+        {
+          "type": "walk",
+          "seconds": 90,
+          "sound": "walk_90"
+        },
+        {
+          "type": "run",
+          "seconds": 60,
+          "sound": "run_60"
+        },
+        {
+          "type": "walk",
+          "seconds": 90,
+          "sound": "walk_90"
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "week": 1,
+      "day": 3,
+      "warmupSeconds": 300,
+      "warmupSound": "walk",
+      "cooldownSeconds": 300,
+      "cooldownSound": "cooldown",
+      "completeSound": "complete",
+      "intervals": [
+        {
+          "type": "run",
+          "seconds": 60,
+          "sound": "run_60"
+        },
+        {
+          "type": "walk",
+          "seconds": 90,
+          "sound": "walk_90"
+        },
+        {
+          "type": "run",
+          "seconds": 60,
+          "sound": "run_60"
+        },
+        {
+          "type": "walk",
+          "seconds": 90,
+          "sound": "walk_90"
+        },
+        {
+          "type": "run",
+          "seconds": 60,
+          "sound": "run_60"
+        },
+        {
+          "type": "walk",
+          "seconds": 90,
+          "sound": "walk_90"
+        },
+        {
+          "type": "run",
+          "seconds": 60,
+          "sound": "run_60"
+        },
+        {
+          "type": "walk",
+          "seconds": 90,
+          "sound": "walk_90"
+        },
+        {
+          "type": "run",
+          "seconds": 60,
+          "sound": "run_60"
+        },
+        {
+          "type": "walk",
+          "seconds": 90,
+          "sound": "walk_90"
+        },
+        {
+          "type": "run",
+          "seconds": 60,
+          "sound": "run_60"
+        },
+        {
+          "type": "walk",
+          "seconds": 90,
+          "sound": "walk_90"
+        },
+        {
+          "type": "run",
+          "seconds": 60,
+          "sound": "run_60"
+        },
+        {
+          "type": "walk",
+          "seconds": 90,
+          "sound": "walk_90"
+        },
+        {
+          "type": "run",
+          "seconds": 60,
+          "sound": "run_60"
+        },
+        {
+          "type": "walk",
+          "seconds": 90,
+          "sound": "walk_90"
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "week": 2,
+      "day": 1,
+      "warmupSeconds": 300,
+      "warmupSound": "walk",
+      "cooldownSeconds": 300,
+      "cooldownSound": "cooldown",
+      "completeSound": "complete",
+      "intervals": [
+        {
+          "type": "run",
+          "seconds": 90,
+          "sound": "run_90"
+        },
+        {
+          "type": "walk",
+          "seconds": 120,
+          "sound": "walk_120"
+        },
+        {
+          "type": "run",
+          "seconds": 90,
+          "sound": "run_90"
+        },
+        {
+          "type": "walk",
+          "seconds": 120,
+          "sound": "walk_120"
+        },
+        {
+          "type": "run",
+          "seconds": 90,
+          "sound": "run_90"
+        },
+        {
+          "type": "walk",
+          "seconds": 120,
+          "sound": "walk_120"
+        },
+        {
+          "type": "run",
+          "seconds": 90,
+          "sound": "run_90"
+        },
+        {
+          "type": "walk",
+          "seconds": 120,
+          "sound": "walk_120"
+        },
+        {
+          "type": "run",
+          "seconds": 90,
+          "sound": "run_90"
+        },
+        {
+          "type": "walk",
+          "seconds": 120,
+          "sound": "walk_120"
+        },
+        {
+          "type": "run",
+          "seconds": 90,
+          "sound": "run_90"
+        },
+        {
+          "type": "walk",
+          "seconds": 120,
+          "sound": "walk_120"
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "week": 2,
+      "day": 2,
+      "warmupSeconds": 300,
+      "warmupSound": "walk",
+      "cooldownSeconds": 300,
+      "cooldownSound": "cooldown",
+      "completeSound": "complete",
+      "intervals": [
+        {
+          "type": "run",
+          "seconds": 90,
+          "sound": "run_90"
+        },
+        {
+          "type": "walk",
+          "seconds": 120,
+          "sound": "walk_120"
+        },
+        {
+          "type": "run",
+          "seconds": 90,
+          "sound": "run_90"
+        },
+        {
+          "type": "walk",
+          "seconds": 120,
+          "sound": "walk_120"
+        },
+        {
+          "type": "run",
+          "seconds": 90,
+          "sound": "run_90"
+        },
+        {
+          "type": "walk",
+          "seconds": 120,
+          "sound": "walk_120"
+        },
+        {
+          "type": "run",
+          "seconds": 90,
+          "sound": "run_90"
+        },
+        {
+          "type": "walk",
+          "seconds": 120,
+          "sound": "walk_120"
+        },
+        {
+          "type": "run",
+          "seconds": 90,
+          "sound": "run_90"
+        },
+        {
+          "type": "walk",
+          "seconds": 120,
+          "sound": "walk_120"
+        },
+        {
+          "type": "run",
+          "seconds": 90,
+          "sound": "run_90"
+        },
+        {
+          "type": "walk",
+          "seconds": 120,
+          "sound": "walk_120"
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "week": 2,
+      "day": 3,
+      "warmupSeconds": 300,
+      "warmupSound": "walk",
+      "cooldownSeconds": 300,
+      "cooldownSound": "cooldown",
+      "completeSound": "complete",
+      "intervals": [
+        {
+          "type": "run",
+          "seconds": 90,
+          "sound": "run_90"
+        },
+        {
+          "type": "walk",
+          "seconds": 120,
+          "sound": "walk_120"
+        },
+        {
+          "type": "run",
+          "seconds": 90,
+          "sound": "run_90"
+        },
+        {
+          "type": "walk",
+          "seconds": 120,
+          "sound": "walk_120"
+        },
+        {
+          "type": "run",
+          "seconds": 90,
+          "sound": "run_90"
+        },
+        {
+          "type": "walk",
+          "seconds": 120,
+          "sound": "walk_120"
+        },
+        {
+          "type": "run",
+          "seconds": 90,
+          "sound": "run_90"
+        },
+        {
+          "type": "walk",
+          "seconds": 120,
+          "sound": "walk_120"
+        },
+        {
+          "type": "run",
+          "seconds": 90,
+          "sound": "run_90"
+        },
+        {
+          "type": "walk",
+          "seconds": 120,
+          "sound": "walk_120"
+        },
+        {
+          "type": "run",
+          "seconds": 90,
+          "sound": "run_90"
+        },
+        {
+          "type": "walk",
+          "seconds": 120,
+          "sound": "walk_120"
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "week": 3,
+      "day": 1,
+      "warmupSeconds": 300,
+      "warmupSound": "walk",
+      "cooldownSeconds": 300,
+      "cooldownSound": "cooldown",
+      "completeSound": "complete",
+      "intervals": [
+        {
+          "type": "run",
+          "seconds": 90,
+          "sound": "run_90"
+        },
+        {
+          "type": "walk",
+          "seconds": 90,
+          "sound": "walk_90"
+        },
+        {
+          "type": "run",
+          "seconds": 180,
+          "sound": "run_180"
+        },
+        {
+          "type": "walk",
+          "seconds": 180,
+          "sound": "walk_180"
+        },
+        {
+          "type": "run",
+          "seconds": 90,
+          "sound": "run_90"
+        },
+        {
+          "type": "walk",
+          "seconds": 90,
+          "sound": "walk_90"
+        },
+        {
+          "type": "run",
+          "seconds": 180,
+          "sound": "run_180"
+        },
+        {
+          "type": "walk",
+          "seconds": 180,
+          "sound": "walk_180"
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "week": 3,
+      "day": 2,
+      "warmupSeconds": 300,
+      "warmupSound": "walk",
+      "cooldownSeconds": 300,
+      "cooldownSound": "cooldown",
+      "completeSound": "complete",
+      "intervals": [
+        {
+          "type": "run",
+          "seconds": 90,
+          "sound": "run_90"
+        },
+        {
+          "type": "walk",
+          "seconds": 90,
+          "sound": "walk_90"
+        },
+        {
+          "type": "run",
+          "seconds": 180,
+          "sound": "run_180"
+        },
+        {
+          "type": "walk",
+          "seconds": 180,
+          "sound": "walk_180"
+        },
+        {
+          "type": "run",
+          "seconds": 90,
+          "sound": "run_90"
+        },
+        {
+          "type": "walk",
+          "seconds": 90,
+          "sound": "walk_90"
+        },
+        {
+          "type": "run",
+          "seconds": 180,
+          "sound": "run_180"
+        },
+        {
+          "type": "walk",
+          "seconds": 180,
+          "sound": "walk_180"
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "week": 3,
+      "day": 3,
+      "warmupSeconds": 300,
+      "warmupSound": "walk",
+      "cooldownSeconds": 300,
+      "cooldownSound": "cooldown",
+      "completeSound": "complete",
+      "intervals": [
+        {
+          "type": "run",
+          "seconds": 90,
+          "sound": "run_90"
+        },
+        {
+          "type": "walk",
+          "seconds": 90,
+          "sound": "walk_90"
+        },
+        {
+          "type": "run",
+          "seconds": 180,
+          "sound": "run_180"
+        },
+        {
+          "type": "walk",
+          "seconds": 180,
+          "sound": "walk_180"
+        },
+        {
+          "type": "run",
+          "seconds": 90,
+          "sound": "run_90"
+        },
+        {
+          "type": "walk",
+          "seconds": 90,
+          "sound": "walk_90"
+        },
+        {
+          "type": "run",
+          "seconds": 180,
+          "sound": "run_180"
+        },
+        {
+          "type": "walk",
+          "seconds": 180,
+          "sound": "walk_180"
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "week": 4,
+      "day": 1,
+      "warmupSeconds": 300,
+      "warmupSound": "walk",
+      "cooldownSeconds": 300,
+      "cooldownSound": "cooldown",
+      "completeSound": "complete",
+      "intervals": [
+        {
+          "type": "run",
+          "seconds": 180,
+          "sound": "run_180"
+        },
+        {
+          "type": "walk",
+          "seconds": 90,
+          "sound": "walk_90"
+        },
+        {
+          "type": "run",
+          "seconds": 300,
+          "sound": "run_300"
+        },
+        {
+          "type": "walk",
+          "seconds": 150,
+          "sound": "walk_150"
+        },
+        {
+          "type": "run",
+          "seconds": 180,
+          "sound": "run_180"
+        },
+        {
+          "type": "walk",
+          "seconds": 90,
+          "sound": "walk_90"
+        },
+        {
+          "type": "run",
+          "seconds": 300,
+          "sound": "run_300"
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "week": 4,
+      "day": 2,
+      "warmupSeconds": 300,
+      "warmupSound": "walk",
+      "cooldownSeconds": 300,
+      "cooldownSound": "cooldown",
+      "completeSound": "complete",
+      "intervals": [
+        {
+          "type": "run",
+          "seconds": 180,
+          "sound": "run_180"
+        },
+        {
+          "type": "walk",
+          "seconds": 90,
+          "sound": "walk_90"
+        },
+        {
+          "type": "run",
+          "seconds": 300,
+          "sound": "run_300"
+        },
+        {
+          "type": "walk",
+          "seconds": 150,
+          "sound": "walk_150"
+        },
+        {
+          "type": "run",
+          "seconds": 180,
+          "sound": "run_180"
+        },
+        {
+          "type": "walk",
+          "seconds": 90,
+          "sound": "walk_90"
+        },
+        {
+          "type": "run",
+          "seconds": 300,
+          "sound": "run_300"
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "week": 4,
+      "day": 3,
+      "warmupSeconds": 300,
+      "warmupSound": "walk",
+      "cooldownSeconds": 300,
+      "cooldownSound": "cooldown",
+      "completeSound": "complete",
+      "intervals": [
+        {
+          "type": "run",
+          "seconds": 180,
+          "sound": "run_180"
+        },
+        {
+          "type": "walk",
+          "seconds": 90,
+          "sound": "walk_90"
+        },
+        {
+          "type": "run",
+          "seconds": 300,
+          "sound": "run_300"
+        },
+        {
+          "type": "walk",
+          "seconds": 150,
+          "sound": "walk_150"
+        },
+        {
+          "type": "run",
+          "seconds": 180,
+          "sound": "run_180"
+        },
+        {
+          "type": "walk",
+          "seconds": 90,
+          "sound": "walk_90"
+        },
+        {
+          "type": "run",
+          "seconds": 300,
+          "sound": "run_300"
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "week": 5,
+      "day": 1,
+      "warmupSeconds": 300,
+      "warmupSound": "walk",
+      "cooldownSeconds": 300,
+      "cooldownSound": "cooldown",
+      "completeSound": "complete",
+      "intervals": [
+        {
+          "type": "run",
+          "seconds": 300,
+          "sound": "run_300"
+        },
+        {
+          "type": "walk",
+          "seconds": 180,
+          "sound": "walk_180"
+        },
+        {
+          "type": "run",
+          "seconds": 300,
+          "sound": "run_300"
+        },
+        {
+          "type": "walk",
+          "seconds": 180,
+          "sound": "walk_180"
+        },
+        {
+          "type": "run",
+          "seconds": 300,
+          "sound": "run_300"
+        }
+      ]
+    },
+    {
+      "index": 13,
+      "week": 5,
+      "day": 2,
+      "warmupSeconds": 300,
+      "warmupSound": "walk",
+      "cooldownSeconds": 300,
+      "cooldownSound": "cooldown",
+      "completeSound": "complete",
+      "intervals": [
+        {
+          "type": "run",
+          "seconds": 480,
+          "sound": "run_480"
+        },
+        {
+          "type": "walk",
+          "seconds": 300,
+          "sound": "walk_300"
+        },
+        {
+          "type": "run",
+          "seconds": 480,
+          "sound": "run_480"
+        }
+      ]
+    },
+    {
+      "index": 14,
+      "week": 5,
+      "day": 3,
+      "warmupSeconds": 300,
+      "warmupSound": "walk",
+      "cooldownSeconds": 300,
+      "cooldownSound": "cooldown",
+      "completeSound": "complete",
+      "intervals": [
+        {
+          "type": "run",
+          "seconds": 1200,
+          "sound": "run_1200"
+        }
+      ]
+    },
+    {
+      "index": 15,
+      "week": 6,
+      "day": 1,
+      "warmupSeconds": 300,
+      "warmupSound": "walk",
+      "cooldownSeconds": 300,
+      "cooldownSound": "cooldown",
+      "completeSound": "complete",
+      "intervals": [
+        {
+          "type": "run",
+          "seconds": 300,
+          "sound": "run_300"
+        },
+        {
+          "type": "walk",
+          "seconds": 180,
+          "sound": "walk_180"
+        },
+        {
+          "type": "run",
+          "seconds": 480,
+          "sound": "run_480"
+        },
+        {
+          "type": "walk",
+          "seconds": 180,
+          "sound": "walk_180"
+        },
+        {
+          "type": "run",
+          "seconds": 300,
+          "sound": "run_300"
+        }
+      ]
+    },
+    {
+      "index": 16,
+      "week": 6,
+      "day": 2,
+      "warmupSeconds": 300,
+      "warmupSound": "walk",
+      "cooldownSeconds": 300,
+      "cooldownSound": "cooldown",
+      "completeSound": "complete",
+      "intervals": [
+        {
+          "type": "run",
+          "seconds": 600,
+          "sound": "run_600"
+        },
+        {
+          "type": "walk",
+          "seconds": 180,
+          "sound": "walk_180"
+        },
+        {
+          "type": "run",
+          "seconds": 600,
+          "sound": "run_600"
+        }
+      ]
+    },
+    {
+      "index": 17,
+      "week": 6,
+      "day": 3,
+      "warmupSeconds": 300,
+      "warmupSound": "walk",
+      "cooldownSeconds": 300,
+      "cooldownSound": "cooldown",
+      "completeSound": "complete",
+      "intervals": [
+        {
+          "type": "run",
+          "seconds": 1500,
+          "sound": "run_1500"
+        }
+      ]
+    },
+    {
+      "index": 18,
+      "week": 7,
+      "day": 1,
+      "warmupSeconds": 300,
+      "warmupSound": "walk",
+      "cooldownSeconds": 300,
+      "cooldownSound": "cooldown",
+      "completeSound": "complete",
+      "intervals": [
+        {
+          "type": "run",
+          "seconds": 1500,
+          "sound": "run_1500"
+        }
+      ]
+    },
+    {
+      "index": 19,
+      "week": 7,
+      "day": 2,
+      "warmupSeconds": 300,
+      "warmupSound": "walk",
+      "cooldownSeconds": 300,
+      "cooldownSound": "cooldown",
+      "completeSound": "complete",
+      "intervals": [
+        {
+          "type": "run",
+          "seconds": 1500,
+          "sound": "run_1500"
+        }
+      ]
+    },
+    {
+      "index": 20,
+      "week": 7,
+      "day": 3,
+      "warmupSeconds": 300,
+      "warmupSound": "walk",
+      "cooldownSeconds": 300,
+      "cooldownSound": "cooldown",
+      "completeSound": "complete",
+      "intervals": [
+        {
+          "type": "run",
+          "seconds": 1500,
+          "sound": "run_1500"
+        }
+      ]
+    },
+    {
+      "index": 21,
+      "week": 8,
+      "day": 1,
+      "warmupSeconds": 300,
+      "warmupSound": "walk",
+      "cooldownSeconds": 300,
+      "cooldownSound": "cooldown",
+      "completeSound": "complete",
+      "intervals": [
+        {
+          "type": "run",
+          "seconds": 1680,
+          "sound": "run_1680"
+        }
+      ]
+    },
+    {
+      "index": 22,
+      "week": 8,
+      "day": 2,
+      "warmupSeconds": 300,
+      "warmupSound": "walk",
+      "cooldownSeconds": 300,
+      "cooldownSound": "cooldown",
+      "completeSound": "complete",
+      "intervals": [
+        {
+          "type": "run",
+          "seconds": 1680,
+          "sound": "run_1680"
+        }
+      ]
+    },
+    {
+      "index": 23,
+      "week": 8,
+      "day": 3,
+      "warmupSeconds": 300,
+      "warmupSound": "walk",
+      "cooldownSeconds": 300,
+      "cooldownSound": "cooldown",
+      "completeSound": "complete",
+      "intervals": [
+        {
+          "type": "run",
+          "seconds": 1680,
+          "sound": "run_1680"
+        }
+      ]
+    },
+    {
+      "index": 24,
+      "week": 9,
+      "day": 1,
+      "warmupSeconds": 300,
+      "warmupSound": "walk",
+      "cooldownSeconds": 300,
+      "cooldownSound": "cooldown",
+      "completeSound": "complete",
+      "intervals": [
+        {
+          "type": "run",
+          "seconds": 1800,
+          "sound": "run_1800"
+        }
+      ]
+    },
+    {
+      "index": 25,
+      "week": 9,
+      "day": 2,
+      "warmupSeconds": 300,
+      "warmupSound": "walk",
+      "cooldownSeconds": 300,
+      "cooldownSound": "cooldown",
+      "completeSound": "complete",
+      "intervals": [
+        {
+          "type": "run",
+          "seconds": 1800,
+          "sound": "run_1800"
+        }
+      ]
+    },
+    {
+      "index": 26,
+      "week": 9,
+      "day": 3,
+      "warmupSeconds": 300,
+      "warmupSound": "walk",
+      "cooldownSeconds": 300,
+      "cooldownSound": "cooldown",
+      "completeSound": "complete",
+      "intervals": [
+        {
+          "type": "run",
+          "seconds": 1800,
+          "sound": "run_1800"
+        }
+      ]
+    }
+  ]
+}

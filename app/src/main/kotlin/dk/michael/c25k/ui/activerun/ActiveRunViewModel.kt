@@ -74,7 +74,7 @@ class ActiveRunViewModel(app: Application) : AndroidViewModel(app) {
         context.bindService(intent, connection, Context.BIND_AUTO_CREATE)
     }
 
-    fun cancel() {
+    fun stop() {
         service?.cancel()
     }
 

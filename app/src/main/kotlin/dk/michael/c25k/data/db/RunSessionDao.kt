@@ -21,6 +21,9 @@ interface RunSessionDao {
     @Query("SELECT * FROM run_sessions ORDER BY dateTimeEpochMillis DESC LIMIT 2")
     suspend fun lastTwo(): List<RunSessionEntity>
 
+    @Query("SELECT * FROM run_sessions ORDER BY dateTimeEpochMillis DESC")
+    suspend fun all(): List<RunSessionEntity>
+
     @Query("SELECT * FROM run_sessions WHERE id = :id")
     suspend fun byId(id: Long): RunSessionEntity?
 }

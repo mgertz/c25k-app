@@ -7,7 +7,6 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -121,7 +120,7 @@ private fun CalendarCell(program: Program, outcome: RunOutcome?, onClick: () -> 
     }
     Box(
         modifier = Modifier
-            .aspectRatio(1f)
+            .height(64.dp)
             .background(bg, RoundedCornerShape(6.dp))
             .border(0.5.dp, MaterialTheme.colorScheme.outline, RoundedCornerShape(6.dp))
             .clickable(onClick = onClick),

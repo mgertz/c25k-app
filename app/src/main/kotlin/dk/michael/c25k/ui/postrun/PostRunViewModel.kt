@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import dk.michael.c25k.data.db.AppDatabase
+import dk.michael.c25k.data.db.RunOutcome
 import dk.michael.c25k.data.db.RunSessionEntity
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -20,10 +21,10 @@ class PostRunViewModel(app: Application) : AndroidViewModel(app) {
         viewModelScope.launch { _session.value = dao.byId(id) }
     }
 
-    fun save(id: Long, note: String, energyBefore: Int, energyAfter: Int, onDone: () -> Unit) {
+    fun save(id: Long, outcome: RunOutcome, note: String, energyBefore: Int, energyAfter: Int, onDone: () -> Unit) {
         viewModelScope.launch {
             val existing = dao.byId(id) ?: return@launch
-            dao.update(existing.copy(note = note, energyBefore = energyBefore, energyAfter = energyAfter))
+            dao.update(existing.copy(outcome = outcome, note = note, energyBefore = energyBefore, energyAfter = energyAfter))
             onDone()
         }
     }

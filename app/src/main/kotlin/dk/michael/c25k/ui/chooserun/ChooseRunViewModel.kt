@@ -30,10 +30,11 @@ class ChooseRunViewModel(app: Application) : AndroidViewModel(app) {
 
     init {
         viewModelScope.launch {
-            val lastTwo = dao.lastTwo()
+            val sessions = dao.all()
+            val lastTwo = sessions.take(2)
             _uiState.value = ChooseRunUiState(
                 loaded = true,
-                nextIndex = RunSuggestion.next(lastTwo, repository.lastIndex),
+                nextIndex = RunSuggestion.next(sessions, repository.lastIndex),
                 sameAsLastIndex = RunSuggestion.sameAsLast(lastTwo),
                 sameAsOneBeforeIndex = RunSuggestion.sameAsOneBefore(lastTwo)
             )

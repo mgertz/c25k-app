@@ -10,12 +10,14 @@ import dk.michael.c25k.ui.activerun.ActiveRunScreen
 import dk.michael.c25k.ui.chooserun.ChooseRunScreen
 import dk.michael.c25k.ui.history.HistoryScreen
 import dk.michael.c25k.ui.history.RunDetailScreen
-import dk.michael.c25k.ui.home.HomeScreen
+import dk.michael.c25k.ui.home.Home2Screen
 import dk.michael.c25k.ui.postrun.PostRunScreen
+import dk.michael.c25k.ui.workout.WorkoutDetailScreen
 
 private object Routes {
     const val HOME = "home"
     const val CHOOSE_RUN = "choose_run"
+    const val WORKOUT = "workout/{programIndex}"
     const val ACTIVE_RUN = "active_run/{programIndex}"
     const val POST_RUN = "post_run/{sessionId}"
     const val HISTORY = "history"
@@ -29,8 +31,8 @@ fun C25KNavGraph() {
     NavHost(navController = navController, startDestination = Routes.HOME) {
 
         composable(Routes.HOME) {
-            HomeScreen(
-                onStartRun = { navController.navigate(Routes.CHOOSE_RUN) },
+            Home2Screen(
+                onOpenWorkout = { index -> navController.navigate("workout/$index") },
                 onOpenHistory = { navController.navigate(Routes.HISTORY) }
             )
         }
@@ -39,6 +41,18 @@ fun C25KNavGraph() {
             ChooseRunScreen(onStartRun = { index ->
                 navController.navigate("active_run/$index")
             })
+        }
+
+        composable(
+            Routes.WORKOUT,
+            arguments = listOf(navArgument("programIndex") { type = NavType.IntType })
+        ) { backStackEntry ->
+            val programIndex = backStackEntry.arguments?.getInt("programIndex") ?: 0
+            WorkoutDetailScreen(
+                programIndex = programIndex,
+                onStartRun = { index -> navController.navigate("active_run/$index") },
+                onBack = { navController.popBackStack() }
+            )
         }
 
         composable(
@@ -66,9 +80,10 @@ fun C25KNavGraph() {
         }
 
         composable(Routes.HISTORY) {
-            HistoryScreen(onOpenDetail = { sessionId ->
-                navController.navigate("run_detail/$sessionId")
-            })
+            HistoryScreen(
+                onOpenDetail = { sessionId -> navController.navigate("run_detail/$sessionId") },
+                onOpenActivity = { navController.navigate(Routes.HOME) { popUpTo(Routes.HOME) { inclusive = true } } }
+            )
         }
 
         composable(
@@ -76,7 +91,7 @@ fun C25KNavGraph() {
             arguments = listOf(navArgument("sessionId") { type = NavType.LongType })
         ) { backStackEntry ->
             val sessionId = backStackEntry.arguments?.getLong("sessionId") ?: 0L
-            RunDetailScreen(sessionId = sessionId)
+            RunDetailScreen(sessionId = sessionId, onBack = { navController.popBackStack() })
         }
     }
 }

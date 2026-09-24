@@ -9,11 +9,12 @@ import dk.michael.c25k.data.db.RunSessionEntity
  */
 object RunSuggestion {
 
-    fun next(lastTwo: List<RunSessionEntity>, lastIndex: Int): Int {
-        val last = lastTwo.getOrNull(0) ?: return 0
-        return if (last.outcome == RunOutcome.CANCELLED) last.programIndex
-        else (last.programIndex + 1).coerceAtMost(lastIndex)
-    }
+    fun next(sessions: List<RunSessionEntity>, lastIndex: Int): Int =
+        sessions
+            .filter { it.outcome == RunOutcome.COMPLETED }
+            .maxOfOrNull { it.programIndex }
+            ?.let { (it + 1).coerceAtMost(lastIndex) }
+            ?: 0
 
     fun sameAsLast(lastTwo: List<RunSessionEntity>): Int? = lastTwo.getOrNull(0)?.programIndex
 

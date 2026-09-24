@@ -43,6 +43,7 @@ import dk.michael.c25k.data.model.Program
 import dk.michael.c25k.ui.formatClock
 import dk.michael.c25k.ui.navigation.BottomTab
 import dk.michael.c25k.ui.navigation.C25KBottomBar
+import dk.michael.c25k.ui.theme.C25KPalette
 import dk.michael.c25k.ui.runSeconds
 import dk.michael.c25k.ui.theme.CancelledRed
 import dk.michael.c25k.ui.theme.CancelledRedText
@@ -94,9 +95,9 @@ fun Home2Screen(
                 .background(
                     Brush.verticalGradient(
                         colors = listOf(
-                            Color(0xFF13B6C5),
-                            Color(0xFF087A9B),
-                            Color(0xFF064263)
+                            C25KPalette.FjordLight,
+                            C25KPalette.Fjord,
+                            C25KPalette.FjordDeep
                         )
                     )
                 )
@@ -188,7 +189,7 @@ private fun WorkoutCard(
         onClick = onOpenWorkout,
         shape = RoundedCornerShape(28.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 10.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
+        colors = CardDefaults.cardColors(containerColor = C25KPalette.Surface),
         modifier = Modifier
             .fillMaxWidth()
             .height(310.dp)
@@ -214,12 +215,12 @@ private fun WorkoutCard(
 
             Text(
                 text = formatClock(program.totalSeconds()),
-                color = Color(0xFF0A88B0),
+                color = C25KPalette.Fjord,
                 style = MaterialTheme.typography.displayMedium,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(top = 18.dp)
             )
-            Text("total tid", style = MaterialTheme.typography.labelMedium, color = Color(0xFF5F6F78))
+            Text("total tid", style = MaterialTheme.typography.labelMedium, color = C25KPalette.TextSecondary)
 
             Row(
                 modifier = Modifier
@@ -239,7 +240,7 @@ private fun WorkoutCard(
             Text(
                 text = "${program.intervals.size} intervaller · tryk for detaljer",
                 style = MaterialTheme.typography.bodySmall,
-                color = Color(0xFF5F6F78)
+                color = C25KPalette.TextSecondary
             )
         }
     }
@@ -250,8 +251,8 @@ private fun StatusChip(outcome: RunOutcome?, suggested: Boolean) {
     val (text, bg, fg) = when (outcome) {
         RunOutcome.COMPLETED -> Triple("Gennemført", CompletedGreen, CompletedGreenText)
         RunOutcome.CANCELLED -> Triple("Afbrudt", CancelledRed, CancelledRedText)
-        null -> if (suggested) Triple("Næste", Color(0xFFD9FF55), Color(0xFF213600))
-            else Triple("Planlagt", Color(0xFFEAF1F4), Color(0xFF455A64))
+        null -> if (suggested) Triple("Næste", C25KPalette.Accent, C25KPalette.AccentText)
+            else Triple("Planlagt", C25KPalette.SurfaceTint, C25KPalette.TextSecondary)
     }
     Text(
         text = text,
@@ -271,13 +272,13 @@ private fun WorkoutMetric(title: String, value: String) {
             modifier = Modifier
                 .size(34.dp)
                 .clip(RoundedCornerShape(12.dp))
-                .background(Color(0xFFE7F8FB)),
+                .background(C25KPalette.SurfaceTint),
             contentAlignment = Alignment.Center
         ) {
-            Text(title.take(1), color = Color(0xFF0A88B0), fontWeight = FontWeight.Bold)
+            Text(title.take(1), color = C25KPalette.Fjord, fontWeight = FontWeight.Bold)
         }
         Text(title, style = MaterialTheme.typography.labelSmall, modifier = Modifier.padding(top = 6.dp))
-        Text(value, style = MaterialTheme.typography.labelSmall, color = Color(0xFF7A8C94))
+        Text(value, style = MaterialTheme.typography.labelSmall, color = C25KPalette.TextMuted)
     }
 }
 
@@ -285,7 +286,7 @@ private fun WorkoutMetric(title: String, value: String) {
 private fun WorkoutArrow() {
     Text(
         text = "-",
-        color = Color(0xFF9EADB4),
+        color = C25KPalette.TextMuted,
         modifier = Modifier.padding(top = 9.dp)
     )
 }
@@ -300,7 +301,7 @@ private fun ProgressDots(count: Int, current: Int, modifier: Modifier = Modifier
                     .height(if (index == current) 7.dp else 5.dp)
                     .padding(horizontal = 1.dp)
                     .clip(RoundedCornerShape(99.dp))
-                    .background(if (index <= current) Color(0xFFD9FF55) else Color.White.copy(alpha = 0.28f))
+                    .background(if (index <= current) C25KPalette.Accent else Color.White.copy(alpha = 0.28f))
             )
         }
     }

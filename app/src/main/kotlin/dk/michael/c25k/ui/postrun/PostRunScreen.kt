@@ -35,6 +35,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import dk.michael.c25k.data.db.RunOutcome
+import dk.michael.c25k.ui.theme.C25KPalette
 import dk.michael.c25k.ui.theme.CancelledRed
 import dk.michael.c25k.ui.theme.CancelledRedText
 import dk.michael.c25k.ui.theme.CompletedGreen
@@ -65,7 +66,7 @@ fun PostRunScreen(sessionId: Long, onSaved: () -> Unit) {
             .fillMaxSize()
             .background(
                 Brush.verticalGradient(
-                    listOf(Color(0xFF14B8C6), Color(0xFF087A9B), Color(0xFF073A60))
+                    listOf(C25KPalette.FjordLight, C25KPalette.Fjord, C25KPalette.FjordDeep)
                 )
             )
     ) {
@@ -92,7 +93,7 @@ fun PostRunScreen(sessionId: Long, onSaved: () -> Unit) {
             Surface(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(30.dp),
-                color = Color.White,
+                color = C25KPalette.Surface,
                 tonalElevation = 6.dp
             ) {
                 Column(modifier = Modifier.padding(18.dp)) {
@@ -173,8 +174,8 @@ private fun OutcomeCard(
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val bg = if (selected) selectedColor else Color(0xFFF1F6F8)
-    val fg = if (selected) selectedTextColor else Color(0xFF506872)
+    val bg = if (selected) selectedColor else C25KPalette.SurfaceTint
+    val fg = if (selected) selectedTextColor else C25KPalette.TextSecondary
     val border = if (selected) selectedTextColor.copy(alpha = 0.28f) else Color.Transparent
 
     Column(
@@ -191,7 +192,7 @@ private fun OutcomeCard(
             modifier = Modifier
                 .size(26.dp)
                 .clip(RoundedCornerShape(99.dp))
-                .background(if (selected) fg else Color.White),
+                .background(if (selected) fg else C25KPalette.Surface),
             contentAlignment = Alignment.Center
         ) {
             Text(if (selected) "✓" else "", color = bg, style = MaterialTheme.typography.labelSmall)
@@ -209,17 +210,17 @@ private fun EnergyCard(title: String, value: Int, onChange: (Int) -> Unit, modif
         modifier = modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(22.dp))
-            .background(Color(0xFFF7FAFB))
+            .background(C25KPalette.SurfaceTint)
             .padding(horizontal = 14.dp, vertical = 12.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Text(title, style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.SemiBold, color = Color(0xFF324C56))
+        Text(title, style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.SemiBold, color = C25KPalette.TextPrimary)
         Row(horizontalArrangement = Arrangement.spacedBy(2.dp)) {
             for (i in 1..5) {
                 Text(
                     text = if (i <= value) "★" else "☆",
-                    color = if (i <= value) Color(0xFF0A88B0) else Color(0xFFB6C4CA),
+                    color = if (i <= value) C25KPalette.Accent else C25KPalette.TextMuted,
                     style = MaterialTheme.typography.titleLarge,
                     modifier = Modifier.clickable { onChange(i) }
                 )

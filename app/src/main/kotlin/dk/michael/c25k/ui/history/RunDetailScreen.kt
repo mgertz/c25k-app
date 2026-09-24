@@ -35,6 +35,7 @@ import dk.michael.c25k.data.model.Program
 import dk.michael.c25k.ui.C25KBackButton
 import dk.michael.c25k.ui.formatClock
 import dk.michael.c25k.ui.runSeconds
+import dk.michael.c25k.ui.theme.C25KPalette
 import dk.michael.c25k.ui.theme.CancelledRed
 import dk.michael.c25k.ui.theme.CancelledRedText
 import dk.michael.c25k.ui.theme.CompletedGreen
@@ -68,7 +69,7 @@ fun RunDetailScreen(sessionId: Long, onBack: () -> Unit = {}) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFF4F8FA))
+            .background(C25KPalette.Background)
     ) {
         LazyColumn(modifier = Modifier.fillMaxSize()) {
             item {
@@ -102,7 +103,7 @@ private fun DetailHeader(current: RunSessionEntity, program: Program?, dateText:
         modifier = Modifier
             .fillMaxWidth()
             .background(
-                Brush.verticalGradient(listOf(Color(0xFF12B7C5), Color(0xFF087A9B), Color(0xFF073A60)))
+                Brush.verticalGradient(listOf(C25KPalette.FjordLight, C25KPalette.Fjord, C25KPalette.FjordDeep))
             )
             .padding(horizontal = 18.dp, vertical = 22.dp)
     ) {
@@ -135,17 +136,17 @@ private fun DetailHeader(current: RunSessionEntity, program: Program?, dateText:
 
 @Composable
 private fun EnergyDetailCard(title: String, value: Int, modifier: Modifier = Modifier) {
-    Surface(modifier = modifier.height(118.dp), shape = RoundedCornerShape(26.dp), color = Color.White, tonalElevation = 3.dp) {
+    Surface(modifier = modifier.height(118.dp), shape = RoundedCornerShape(26.dp), color = C25KPalette.Surface, tonalElevation = 3.dp) {
         Column(
             modifier = Modifier.padding(14.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            Text(title, style = MaterialTheme.typography.labelLarge, color = Color(0xFF647B84))
+            Text(title, style = MaterialTheme.typography.labelLarge, color = C25KPalette.TextSecondary)
             Text(
                 text = if (value > 0) "$value/5" else "-",
                 style = MaterialTheme.typography.headlineMedium,
-                color = Color(0xFF087A9B),
+                color = C25KPalette.Fjord,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(top = 4.dp)
             )
@@ -160,7 +161,7 @@ private fun StarLine(value: Int) {
         for (i in 1..5) {
             Text(
                 text = if (i <= value) "★" else "☆",
-                color = if (i <= value) Color(0xFF0A88B0) else Color(0xFFB6C4CA),
+                color = if (i <= value) C25KPalette.Accent else C25KPalette.TextMuted,
                 style = MaterialTheme.typography.bodyLarge
             )
         }
@@ -169,9 +170,9 @@ private fun StarLine(value: Int) {
 
 @Composable
 private fun WorkoutSummary(program: Program) {
-    Surface(shape = RoundedCornerShape(28.dp), color = Color.White, tonalElevation = 3.dp) {
+    Surface(shape = RoundedCornerShape(28.dp), color = C25KPalette.Surface, tonalElevation = 3.dp) {
         Column(modifier = Modifier.padding(18.dp)) {
-            Text("Workout", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold, color = Color(0xFF203840))
+            Text("Workout", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold, color = C25KPalette.TextPrimary)
             Row(modifier = Modifier.padding(top = 12.dp), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                 SummaryMetric("Total", formatClock(program.totalSeconds()), Modifier.weight(1f))
                 SummaryMetric("Løb", formatClock(program.runSeconds()), Modifier.weight(1f))
@@ -180,7 +181,7 @@ private fun WorkoutSummary(program: Program) {
             Text(
                 text = "${program.intervals.size} intervaller · ${formatClock(program.warmupSeconds)} opvarmning · ${formatClock(program.cooldownSeconds)} nedkøling",
                 style = MaterialTheme.typography.bodySmall,
-                color = Color(0xFF647B84),
+                color = C25KPalette.TextSecondary,
                 modifier = Modifier.padding(top = 12.dp)
             )
         }
@@ -192,24 +193,24 @@ private fun SummaryMetric(title: String, value: String, modifier: Modifier = Mod
     Column(
         modifier = modifier
             .clip(RoundedCornerShape(18.dp))
-            .background(Color(0xFFEAF8FA))
+            .background(C25KPalette.SurfaceTint)
             .padding(10.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(value, color = Color(0xFF087A9B), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
-        Text(title, color = Color(0xFF647B84), style = MaterialTheme.typography.labelSmall, textAlign = TextAlign.Center)
+        Text(value, color = C25KPalette.Fjord, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+        Text(title, color = C25KPalette.TextSecondary, style = MaterialTheme.typography.labelSmall, textAlign = TextAlign.Center)
     }
 }
 
 @Composable
 private fun NoteCard(note: String) {
-    Surface(shape = RoundedCornerShape(28.dp), color = Color.White, tonalElevation = 3.dp) {
+    Surface(shape = RoundedCornerShape(28.dp), color = C25KPalette.Surface, tonalElevation = 3.dp) {
         Column(modifier = Modifier.fillMaxWidth().padding(18.dp)) {
-            Text("Note", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold, color = Color(0xFF203840))
+            Text("Note", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold, color = C25KPalette.TextPrimary)
             Text(
                 text = note.ifBlank { "Ingen note gemt for denne tur." },
                 style = MaterialTheme.typography.bodyMedium,
-                color = if (note.isBlank()) Color(0xFF8A9BA2) else Color(0xFF415860),
+                color = if (note.isBlank()) C25KPalette.TextMuted else C25KPalette.TextSecondary,
                 modifier = Modifier.padding(top = 8.dp)
             )
         }

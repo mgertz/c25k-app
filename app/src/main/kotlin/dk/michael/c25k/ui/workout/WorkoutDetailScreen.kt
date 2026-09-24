@@ -30,6 +30,7 @@ import dk.michael.c25k.ui.formatClock
 import dk.michael.c25k.ui.formatDuration
 import dk.michael.c25k.ui.home.HomeViewModel
 import dk.michael.c25k.ui.runSeconds
+import dk.michael.c25k.ui.theme.C25KPalette
 import dk.michael.c25k.ui.totalSeconds
 import dk.michael.c25k.ui.walkSeconds
 
@@ -49,7 +50,7 @@ fun WorkoutDetailScreen(programIndex: Int, onStartRun: (Int) -> Unit, onBack: ()
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFF4F8FA))
+            .background(C25KPalette.Background)
     ) {
         WorkoutHeader(program = program, onBack = onBack)
 
@@ -98,7 +99,7 @@ private fun WorkoutHeader(program: Program, onBack: () -> Unit) {
             .fillMaxWidth()
             .background(
                 Brush.verticalGradient(
-                    listOf(Color(0xFF10B8C6), Color(0xFF087A9B))
+                    listOf(C25KPalette.FjordLight, C25KPalette.Fjord)
                 )
             )
             .padding(16.dp)
@@ -125,22 +126,22 @@ private fun DetailStat(title: String, value: String, modifier: Modifier = Modifi
     Surface(
         modifier = modifier,
         shape = RoundedCornerShape(18.dp),
-        color = Color.White,
+        color = C25KPalette.Surface,
         tonalElevation = 2.dp
     ) {
         Column(
             modifier = Modifier.padding(14.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(value, style = MaterialTheme.typography.titleLarge, color = Color(0xFF087A9B), fontWeight = FontWeight.Bold)
-            Text(title, style = MaterialTheme.typography.labelMedium, color = Color(0xFF637780))
+            Text(value, style = MaterialTheme.typography.titleLarge, color = C25KPalette.Fjord, fontWeight = FontWeight.Bold)
+            Text(title, style = MaterialTheme.typography.labelMedium, color = C25KPalette.TextSecondary)
         }
     }
 }
 
 @Composable
 private fun SectionRow(title: String, duration: String, subtitle: String) {
-    Surface(shape = RoundedCornerShape(18.dp), color = Color.White, tonalElevation = 1.dp) {
+    Surface(shape = RoundedCornerShape(18.dp), color = C25KPalette.Surface, tonalElevation = 1.dp) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -150,9 +151,9 @@ private fun SectionRow(title: String, duration: String, subtitle: String) {
         ) {
             Column(modifier = Modifier.weight(1f)) {
                 Text(title, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold)
-                Text(subtitle, style = MaterialTheme.typography.bodySmall, color = Color(0xFF637780))
+                Text(subtitle, style = MaterialTheme.typography.bodySmall, color = C25KPalette.TextSecondary)
             }
-            Text(duration, color = Color(0xFF087A9B), fontWeight = FontWeight.Bold)
+            Text(duration, color = C25KPalette.Fjord, fontWeight = FontWeight.Bold)
         }
     }
 }
@@ -161,9 +162,9 @@ private fun SectionRow(title: String, duration: String, subtitle: String) {
 private fun IntervalRow(index: Int, interval: IntervalStep) {
     val isRun = interval.type == "run"
     val title = if (isRun) "Løb" else "Gå"
-    val accent = if (isRun) Color(0xFF11A86D) else Color(0xFF0A88B0)
+    val accent = if (isRun) C25KPalette.Run else C25KPalette.Walk
 
-    Surface(shape = RoundedCornerShape(14.dp), color = Color.White) {
+    Surface(shape = RoundedCornerShape(14.dp), color = C25KPalette.Surface) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -181,7 +182,7 @@ private fun IntervalRow(index: Int, interval: IntervalStep) {
                 )
                 Column(modifier = Modifier.padding(start = 12.dp)) {
                     Text(title, style = MaterialTheme.typography.bodyLarge, fontWeight = FontWeight.SemiBold)
-                    Text(if (isRun) "Hold et kontrolleret tempo" else "Find ro i vejrtrækningen", style = MaterialTheme.typography.bodySmall, color = Color(0xFF637780))
+                    Text(if (isRun) "Hold et kontrolleret tempo" else "Find ro i vejrtrækningen", style = MaterialTheme.typography.bodySmall, color = C25KPalette.TextSecondary)
                 }
             }
             Text(formatDuration(interval.seconds), color = accent, fontWeight = FontWeight.Bold)

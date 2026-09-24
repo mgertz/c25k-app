@@ -55,9 +55,10 @@ import dk.michael.c25k.service.RunStepUi
 import dk.michael.c25k.service.RunUiState
 import dk.michael.c25k.ui.formatClock
 import dk.michael.c25k.ui.formatDuration
+import dk.michael.c25k.ui.theme.C25KPalette
 import dk.michael.c25k.ui.theme.CancelledRed
-import dk.michael.c25k.ui.theme.CancelledRedText
 import dk.michael.c25k.ui.theme.CompletedGreen
+import dk.michael.c25k.ui.theme.CompletedGreenText
 
 @Composable
 fun ActiveRunScreen(programIndex: Int, onFinished: (Long) -> Unit) {
@@ -77,7 +78,7 @@ fun ActiveRunScreen(programIndex: Int, onFinished: (Long) -> Unit) {
             .fillMaxSize()
             .background(
                 Brush.verticalGradient(
-                    listOf(Color(0xFF15B9C7), Color(0xFF087A9B), Color(0xFF073A60))
+                    listOf(C25KPalette.FjordLight, C25KPalette.Fjord, C25KPalette.FjordDeep)
                 )
             )
     ) {
@@ -160,7 +161,7 @@ private fun StopRunDialog(onDismiss: () -> Unit, onConfirmed: () -> Unit) {
                 .clip(RoundedCornerShape(30.dp))
                 .background(
                     Brush.verticalGradient(
-                        listOf(Color(0xFF0E8FA5), Color(0xFF073A60))
+                        listOf(C25KPalette.Fjord, C25KPalette.FjordDeep)
                     )
                 )
                 .border(1.dp, Color.White.copy(alpha = 0.18f), RoundedCornerShape(30.dp))
@@ -264,7 +265,7 @@ private fun TimerDial(
             )
             drawArc(
                 brush = Brush.sweepGradient(
-                    colors = listOf(Color(0xFF19D6E8), Color(0xFFD9FF55), Color(0xFF19D6E8)),
+                    colors = listOf(C25KPalette.FjordLight, C25KPalette.Accent, C25KPalette.FjordLight),
                     center = Offset(size.width / 2f, size.height / 2f)
                 ),
                 startAngle = -90f,
@@ -340,7 +341,7 @@ private fun SegmentRow(step: RunStepUi, index: Int, state: RunUiState) {
         completed -> CompletedGreen.copy(alpha = 0.92f)
         else -> Color.White.copy(alpha = 0.12f)
     }
-    val foreground = if (completed) Color(0xFF173404) else Color.White
+    val foreground = if (completed) CompletedGreenText else Color.White
 
     Box(
         modifier = Modifier
@@ -354,7 +355,7 @@ private fun SegmentRow(step: RunStepUi, index: Int, state: RunUiState) {
                 modifier = Modifier
                     .fillMaxHeight()
                     .fillMaxWidth(fill)
-                    .background(Color(0xFFD9FF55).copy(alpha = 0.78f))
+                    .background(C25KPalette.Accent.copy(alpha = 0.78f))
             )
         }
         Row(

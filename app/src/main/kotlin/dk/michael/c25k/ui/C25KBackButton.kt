@@ -21,6 +21,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import dk.michael.c25k.ui.theme.C25KPalette
 
 @Composable
 fun C25KBackButton(
@@ -43,14 +44,14 @@ fun C25KBackButton(
             modifier = Modifier
                 .size(32.dp)
                 .clip(shape)
-                .background(Color(0xFFE8F8FA)),
+                .background(C25KPalette.SurfaceTint),
             contentAlignment = Alignment.Center
         ) {
-            BackArrowIcon(color = Color(0xFF064263))
+            BackArrowIcon(color = C25KPalette.FjordDeep)
         }
         Text(
             text = text,
-            color = Color(0xFF064263),
+            color = C25KPalette.FjordDeep,
             style = MaterialTheme.typography.labelLarge,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(start = 8.dp)

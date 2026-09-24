@@ -25,8 +25,8 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun configureSystemBars() {
-        window.statusBarColor = Color.rgb(0x13, 0xB6, 0xC5)
-        window.navigationBarColor = Color.rgb(0x06, 0x42, 0x63)
+        window.statusBarColor = Color.rgb(0x5F, 0x7F, 0x8C)
+        window.navigationBarColor = Color.rgb(0x17, 0x2E, 0x44)
         WindowInsetsControllerCompat(window, window.decorView).apply {
             isAppearanceLightStatusBars = false
             isAppearanceLightNavigationBars = false

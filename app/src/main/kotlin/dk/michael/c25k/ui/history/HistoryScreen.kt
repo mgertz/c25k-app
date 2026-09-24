@@ -36,6 +36,7 @@ import dk.michael.c25k.data.db.RunSessionEntity
 import dk.michael.c25k.data.model.Program
 import dk.michael.c25k.ui.navigation.BottomTab
 import dk.michael.c25k.ui.navigation.C25KBottomBar
+import dk.michael.c25k.ui.theme.C25KPalette
 import dk.michael.c25k.ui.theme.CancelledRed
 import dk.michael.c25k.ui.theme.CancelledRedText
 import dk.michael.c25k.ui.theme.CompletedGreen
@@ -69,7 +70,7 @@ fun HistoryScreen(onOpenDetail: (Long) -> Unit, onOpenActivity: () -> Unit = {})
                 .fillMaxSize()
                 .background(
                     Brush.verticalGradient(
-                        listOf(Color(0xFF12B7C5), Color(0xFF087A9B), Color(0xFFF4F8FA), Color(0xFFF4F8FA)),
+                        listOf(C25KPalette.FjordLight, C25KPalette.Fjord, C25KPalette.Background, C25KPalette.Background),
                         startY = 0f,
                         endY = 900f
                     )
@@ -111,7 +112,7 @@ fun HistoryScreen(onOpenDetail: (Long) -> Unit, onOpenActivity: () -> Unit = {})
                     modifier = Modifier
                         .fillMaxSize()
                         .clip(RoundedCornerShape(topStart = 32.dp, topEnd = 32.dp)),
-                    color = Color(0xFFF4F8FA)
+                    color = C25KPalette.Background
                 ) {
                     if (sessions.isEmpty()) {
                         EmptyHistory()
@@ -167,7 +168,7 @@ private fun HistoryCard(session: RunSessionEntity, program: Program?, onClick: (
             .fillMaxWidth()
             .clickable(onClick = onClick),
         shape = RoundedCornerShape(26.dp),
-        color = Color.White,
+        color = C25KPalette.Surface,
         tonalElevation = 3.dp
     ) {
         Row(
@@ -182,7 +183,7 @@ private fun HistoryCard(session: RunSessionEntity, program: Program?, onClick: (
                         text = title,
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.Bold,
-                        color = Color(0xFF203840),
+                        color = C25KPalette.TextPrimary,
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis,
                         modifier = Modifier.weight(1f)
@@ -199,7 +200,7 @@ private fun HistoryCard(session: RunSessionEntity, program: Program?, onClick: (
                 }
                 Text(
                     text = "${dateTime.format(dateFormatter)} kl. ${dateTime.format(timeFormatter)}",
-                    color = Color(0xFF647B84),
+                    color = C25KPalette.TextSecondary,
                     style = MaterialTheme.typography.bodySmall,
                     modifier = Modifier.padding(top = 4.dp)
                 )
@@ -210,7 +211,7 @@ private fun HistoryCard(session: RunSessionEntity, program: Program?, onClick: (
                 if (session.note.isNotBlank()) {
                     Text(
                         text = session.note,
-                        color = Color(0xFF506872),
+                        color = C25KPalette.TextSecondary,
                         style = MaterialTheme.typography.bodySmall,
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis,
@@ -228,13 +229,13 @@ private fun DateBadge(day: String, month: String) {
         modifier = Modifier
             .height(70.dp)
             .clip(RoundedCornerShape(20.dp))
-            .background(Color(0xFFE8F8FA))
+            .background(C25KPalette.SurfaceTint)
             .padding(horizontal = 14.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Text(day, color = Color(0xFF087A9B), style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
-        Text(month.lowercase().replaceFirstChar { it.uppercase() }, color = Color(0xFF647B84), style = MaterialTheme.typography.labelSmall)
+        Text(day, color = C25KPalette.Fjord, style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
+        Text(month.lowercase().replaceFirstChar { it.uppercase() }, color = C25KPalette.TextSecondary, style = MaterialTheme.typography.labelSmall)
     }
 }
 
@@ -243,11 +244,11 @@ private fun EnergyMini(label: String, value: Int) {
     val text = if (value > 0) "$label $value/5" else "$label -"
     Text(
         text = text,
-        color = Color(0xFF087A9B),
+        color = C25KPalette.Fjord,
         style = MaterialTheme.typography.labelSmall,
         modifier = Modifier
             .clip(RoundedCornerShape(99.dp))
-            .background(Color(0xFFEAF8FA))
+            .background(C25KPalette.SurfaceTint)
             .padding(horizontal = 9.dp, vertical = 5.dp)
     )
 }
@@ -256,11 +257,11 @@ private fun EnergyMini(label: String, value: Int) {
 private fun EmptyHistory() {
     Box(modifier = Modifier.fillMaxSize().padding(28.dp), contentAlignment = Alignment.Center) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Text("Ingen ture endnu", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold, color = Color(0xFF203840))
+            Text("Ingen ture endnu", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold, color = C25KPalette.TextPrimary)
             Text(
                 text = "Når du har gennemført eller afbrudt et løb, dukker det op her.",
                 style = MaterialTheme.typography.bodyMedium,
-                color = Color(0xFF647B84),
+                color = C25KPalette.TextSecondary,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.padding(top = 8.dp)
             )

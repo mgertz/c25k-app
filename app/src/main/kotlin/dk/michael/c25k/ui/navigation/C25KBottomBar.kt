@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.unit.dp
+import dk.michael.c25k.ui.theme.C25KPalette
 
 enum class BottomTab { ACTIVITY, HISTORY }
 
@@ -24,14 +25,14 @@ fun C25KBottomBar(
     onHistory: () -> Unit
 ) {
     val itemColors = NavigationBarItemDefaults.colors(
-        selectedIconColor = Color(0xFFD9FF55),
+        selectedIconColor = C25KPalette.Accent,
         selectedTextColor = Color.White,
         indicatorColor = Color.White.copy(alpha = 0.12f),
         unselectedIconColor = Color.White.copy(alpha = 0.55f),
         unselectedTextColor = Color.White.copy(alpha = 0.55f)
     )
 
-    NavigationBar(containerColor = Color(0xFF064263), tonalElevation = 0.dp) {
+    NavigationBar(containerColor = C25KPalette.FjordDeep, tonalElevation = 0.dp) {
         NavigationBarItem(
             selected = selected == BottomTab.ACTIVITY,
             onClick = onActivity,

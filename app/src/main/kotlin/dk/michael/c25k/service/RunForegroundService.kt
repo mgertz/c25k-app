@@ -65,13 +65,19 @@ class RunForegroundService : Service() {
         acquireWakeLock()
         startForeground(NOTIFICATION_ID, buildNotification("Løbetur startet"))
         val steps = buildSteps(program)
-        _state.value = RunUiState(phase = RunPhase.WARMUP, steps = steps, currentStepIndex = -1)
+        ActiveRunRegistry.start(program, steps)
+        publishState(RunUiState(phase = RunPhase.WARMUP, steps = steps, currentStepIndex = -1))
         runJob = scope.launch { runSteps(steps) }
     }
 
     fun cancel() {
-        _state.value = _state.value.copy(phase = RunPhase.CANCELLED)
+        publishState(_state.value.copy(phase = RunPhase.CANCELLED))
         runJob?.cancel()
+    }
+
+    private fun publishState(state: RunUiState) {
+        _state.value = state
+        ActiveRunRegistry.update(state)
     }
 
     private fun buildSteps(program: Program): List<RunStepUi> {
@@ -104,24 +110,24 @@ class RunForegroundService : Service() {
                 playSound(step.sound, fallbackFor(step.kind))
                 vibrate()
                 updateNotification(step.label)
-                _state.value = _state.value.copy(
+                publishState(_state.value.copy(
                     phase = phaseFor(step.kind),
                     currentStepIndex = index,
                     elapsedInStepSeconds = 0
-                )
+                ))
                 var elapsed = 0
                 while (elapsed < step.seconds) {
                     delay(1000)
                     elapsed++
-                    _state.value = _state.value.copy(elapsedInStepSeconds = elapsed)
+                    publishState(_state.value.copy(elapsedInStepSeconds = elapsed))
                 }
-                _state.value = _state.value.copy(
+                publishState(_state.value.copy(
                     completedStepIndices = _state.value.completedStepIndices + index
-                )
+                ))
             }
             playSound(completeSound, "complete")
             vibrate()
-            _state.value = _state.value.copy(phase = RunPhase.FINISHED)
+            publishState(_state.value.copy(phase = RunPhase.FINISHED))
         } finally {
             withContext(NonCancellable) { finishInternal() }
         }
@@ -193,6 +199,7 @@ class RunForegroundService : Service() {
     }
 
     private fun finishInternal() {
+        ActiveRunRegistry.clear()
         wakeLock?.let { if (it.isHeld) it.release() }
         wakeLock = null
         ServiceCompat.stopForeground(this, ServiceCompat.STOP_FOREGROUND_REMOVE)

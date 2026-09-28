@@ -11,11 +11,18 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
@@ -25,6 +32,8 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import dk.michael.c25k.data.model.IntervalStep
 import dk.michael.c25k.data.model.Program
+import dk.michael.c25k.service.ActiveRunInfo
+import dk.michael.c25k.service.ActiveRunRegistry
 import dk.michael.c25k.ui.C25KBackButton
 import dk.michael.c25k.ui.formatClock
 import dk.michael.c25k.ui.formatDuration
@@ -35,9 +44,16 @@ import dk.michael.c25k.ui.totalSeconds
 import dk.michael.c25k.ui.walkSeconds
 
 @Composable
-fun WorkoutDetailScreen(programIndex: Int, onStartRun: (Int) -> Unit, onBack: () -> Unit) {
+fun WorkoutDetailScreen(
+    programIndex: Int,
+    onStartRun: (Int) -> Unit,
+    onOpenActiveRun: (Int) -> Unit,
+    onBack: () -> Unit
+) {
     val viewModel: HomeViewModel = viewModel()
     val program = viewModel.programs.firstOrNull { it.index == programIndex }
+    val activeRun by ActiveRunRegistry.activeRun.collectAsState()
+    var showActiveRunWarning by remember { mutableStateOf(false) }
 
     if (program == null) {
         Column(modifier = Modifier.fillMaxSize().padding(16.dp)) {
@@ -81,7 +97,14 @@ fun WorkoutDetailScreen(programIndex: Int, onStartRun: (Int) -> Unit, onBack: ()
         }
 
         Button(
-            onClick = { onStartRun(program.index) },
+            onClick = {
+                val currentActiveRun = activeRun
+                if (currentActiveRun == null) {
+                    onStartRun(program.index)
+                } else {
+                    showActiveRunWarning = true
+                }
+            },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp)
@@ -90,6 +113,56 @@ fun WorkoutDetailScreen(programIndex: Int, onStartRun: (Int) -> Unit, onBack: ()
             Text("Start løb")
         }
     }
+
+    val warningActiveRun = activeRun
+    if (showActiveRunWarning && warningActiveRun != null) {
+        ActiveRunWarningDialog(
+            activeRun = warningActiveRun,
+            onDismiss = { showActiveRunWarning = false },
+            onOpenActiveRun = {
+                showActiveRunWarning = false
+                onOpenActiveRun(warningActiveRun.programIndex)
+            }
+        )
+    }
+}
+
+@Composable
+private fun ActiveRunWarningDialog(
+    activeRun: ActiveRunInfo,
+    onDismiss: () -> Unit,
+    onOpenActiveRun: () -> Unit
+) {
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = {
+            Text(
+                text = "Du er allerede i gang",
+                color = C25KPalette.TextPrimary,
+                fontWeight = FontWeight.Bold
+            )
+        },
+        text = {
+            Text(
+                text = "Du har en aktiv løbetur: ${activeRun.title}. Afslut den aktive tur, før du starter en ny.",
+                color = C25KPalette.TextSecondary,
+                style = MaterialTheme.typography.bodyMedium
+            )
+        },
+        confirmButton = {
+            Button(onClick = onOpenActiveRun) {
+                Text("Åbn aktiv tur")
+            }
+        },
+        dismissButton = {
+            TextButton(onClick = onDismiss) {
+                Text("Bliv her")
+            }
+        },
+        containerColor = C25KPalette.Surface,
+        titleContentColor = C25KPalette.TextPrimary,
+        textContentColor = C25KPalette.TextSecondary
+    )
 }
 
 @Composable
